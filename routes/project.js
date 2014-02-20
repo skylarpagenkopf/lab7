@@ -40,7 +40,7 @@ exports.deleteProject = function(req, res) {
   // find the project and remove it
   models.Project.find({
       _id: projectID
-  }).exec(afterRemove);
+  }).remove().exec(afterRemove);
 
   function afterRemove(err) {
     err ? (console.log(err), res.send(500)) : res.send(200);
